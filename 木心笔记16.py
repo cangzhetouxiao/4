@@ -184,7 +184,7 @@ print(s)
 # 2、使用内置函数set
 s1 = set(range(6))
 print(s1, type(s1))
-s2 = set([1, 23, 32, 1232])
+s2 = set({1, 23, 32, 1232})
 print(s2, type(s2))
 s3 = set((1, 2, 23, 2323, 123))
 print(s3, type(s3))  # 集合当中的元素是无序的
@@ -221,3 +221,58 @@ s.pop()  # pop方法只能删除随机元素，不可以删除指定元素
 print(s)
 s.clear()
 print(s)
+
+# 集合间的关系
+# 1、集合是否相等
+s = {10, 20, 30, 40}
+s2 = {30, 40, 20, 10}
+print(s == s2)  # True
+print(s != s2)  # False
+
+# 2、集合A是否是集合B的子集
+s1 = {10, 20, 30, 40, 50, 60}
+s2 = {10, 20, 30, 40}
+s3 = {10, 20, 90}
+print(s2.issubset(s1))  # True
+print(s3.issubset(s3))  # False
+
+# 3、一个集合是否是另外一个集合的超集
+print(s1.issuperset(s2))  # True
+print(s1.issuperset(s3))  # False
+
+# 4、两个集合是否有交集
+print(s2.isdisjoint(s3))  # False 有交集为False
+s4 = {100, 200, 300}
+print(s2.isdisjoint(s4))  # True 没有交集为True
+
+# 集合的数学操作
+# 1、交集
+s1 = {10, 20, 30, 40}
+s2 = {20, 30, 40, 50, 60}
+print(s1.intersection(s2))
+print(s1 & s2)  # intersection与符号&是一个作用
+# 2、并集
+print(s1.union(s2))
+print(s1 | s2)  # union与符号|是一个作用
+# 3、差集
+print(s1.difference(s2))
+print(s1 - s2)  # difference与符号-是一个作用
+# 4、对称差集
+print(s1.symmetric_difference(s2))
+print(s1 ^ s2)  # symmetric_difference与符号^是一个作用
+
+# 列表生成式
+lst = [i*i for i in range(6)]
+print(lst)
+# 集合生成式
+s = {i*i for i in range(10)}
+print(s)  # 输出结果为无序的
+
+# 四种数据结构的总结
+# list可变，可重复，有序，【】
+# tuple不可变，可重复，有序，（）
+# set可变，不可重复，无序{}
+# 字典，可变，key不可重复，value可重复，无序{key：value}
+
+
+
